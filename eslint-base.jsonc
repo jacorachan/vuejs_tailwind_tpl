@@ -1,0 +1,258 @@
+{
+    //
+    // Code style based on idiomatic.js with NT-ware customization
+    // Requires no additional plugins
+    // ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+    //
+    "extends": [
+        "eslint:recommended",
+        "plugin:vue/essential",
+        "@vue/standard"
+    ],
+    "env": {
+        "es6": true,
+        "browser": true
+    },
+    "parserOptions": {
+        "ecmaVersion": 8 // same as 2017
+    },
+    "rules": {
+
+        //
+        // ES6, ES7, ES8
+        // ===== ===== ===== ===== ===== ===== ===== ===== =====
+        //
+        "no-var": [ "off" ],
+
+        // IMPORTANT! Adding this as error will have problems
+        //            with BOM marker in some files.
+        //            BOM marker should be removed before enabling this setting
+        "no-irregular-whitespace": [ "off" ],
+
+        // JSDoc Valid:
+        "valid-jsdoc": [ "error" ],
+
+        // Variable definition options
+        "no-catch-shadow": [ "error" ],
+        "no-delete-var": [ "error" ],
+        "no-label-var": [ "error" ],
+        "no-shadow-restricted-names": [ "error" ],
+        "no-shadow": [ "error" ],
+        "no-undef": [ "error" ],
+        "no-undef-init": [ "error" ],
+        "no-undefined": [ "error" ],
+        "no-unused-vars": [ "error", { "vars": "all", "args": "none" } ],
+        "no-use-before-define": [ "error" ],
+        "vars-on-top": [ "error" ],
+        "one-var": ["error", "never"],
+        "block-scoped-var": [ "error" ],
+        "no-redeclare": [ "error" ],
+        "no-proto": [ "error" ],
+        "quote-props": ["error", "as-needed", { "keywords": true, "unnecessary": false }],
+
+        // Camel case
+        "camelcase": [ "error", { "properties": "always" } ],
+
+        // Curly
+        "curly": [ "error", "all" ],
+
+        // Trailing commans, trailing semicolons
+        "comma-dangle": [ "error", "never" ],
+        "no-extra-semi": [ "error" ],
+        "semi": [ "error", "always" ],
+        "semi-spacing": [ "error", { "before": false, "after": true } ],
+
+        // This scope problems (that = this / _this = this)
+        "no-extra-bind": [ "error" ],
+        "consistent-this": [ "error", "self" ],
+
+        // Nested loops
+        "no-loop-func": [ "error" ],
+
+        // Complexity rules
+        "complexity": [ "warn", 15 ],
+        "max-depth": [ "error", 4 ],
+        "max-nested-callbacks": [ "error", 3 ],
+        "max-params": [ "off" ],
+        "max-statements": [ "off" ],
+
+        // Condition check strongly typed:
+        // Never if(!varName), never !!varName. Triple equals
+        "valid-typeof": [ "error" ],
+        "no-eq-null": [ "error" ],
+        "eqeqeq": [ "error" ],
+
+        //Strict cannot be used with Ext-JS
+        "strict": [ "error", "never" ],
+
+        // This can improve version control difs. We don't want it although.
+        "no-trailing-spaces": [ "error" ],
+
+        // Allow underscore
+        "no-underscore-dangle": [ "off" ],
+
+        // Not force empty line
+        "eol-last": [ "off" ],
+
+        // Braces position
+        "brace-style": [ "error", "stroustrup", { "allowSingleLine": false } ],
+
+        // Spacing
+        "key-spacing": [ "error", { "beforeColon": false, "afterColon": true } ],
+        "keyword-spacing": [ "error" ],
+        "space-before-function-paren": [ "error", { "anonymous": "always", "named": "never" } ],
+        "space-before-blocks": [ "error", "always" ],
+        "space-in-parens": [ "error", "never" ],
+        "space-infix-ops": [ "error" ],
+        "space-unary-ops": [ "error", { "words": true, "nonwords": false } ],
+        "spaced-line-comment": [ "off", "always" ],
+        "spaced-comment": ["error", "always"],
+        "no-spaced-func": [ "error" ],
+        "object-curly-spacing": [ "error", "always" ],
+        "comma-spacing": [ "error" ],
+        "comma-style": [ "error", "last" ],
+        "linebreak-style": [ "error", "windows" ],
+        "lines-around-comment": [ "error", { "beforeBlockComment": false, "afterBlockComment": false, "beforeLineComment": false } ],
+        "newline-after-var": [ "off" ],
+
+        // Error if several empty lines are found
+        "no-multiple-empty-lines": [ "error", { "max": 1 } ],
+
+        // Lonely if / Nested blocks
+        "no-lone-blocks": [ "error" ],
+        "no-lonely-if": [ "error" ],
+
+        // Assignment
+        "no-param-reassign": [ "error" ],
+        "no-return-assign": [ "error" ],
+        "no-cond-assign": [ "error" ],
+
+        // default mandatory for switch case, in case we enable switch statement per file
+        "default-case": [ "error" ],
+        "no-duplicate-case": [ "error" ],
+        "no-fallthrough": [ "warn" ],
+
+        // No debug!
+        "no-console": [ "error" ],
+        "no-alert": [ "error" ],
+        "no-debugger": [ "error" ],
+
+        // Capital case
+        "new-cap": [ "error", { "capIsNewExceptions": [ "ToInteger", "ToObject", "ToPrimitive", "ToUint32" ] } ],
+
+        // No New
+        "no-new": [ "off" ],
+        "no-new-func": [ "error" ],
+        "no-new-object": [ "error" ],
+        "no-new-wrappers": [ "error" ],
+
+        // Force New to use parenthesis
+        "new-parens": [ "error" ],
+
+        // Force literal notation for array: Array[]
+        "no-array-constructor": [ "error" ],
+
+        // Avoid multimpe args/keys in functions
+        "no-dupe-args": [ "error" ],
+        "no-dupe-keys": [ "error" ],
+
+        // Tabs/Spaces
+        "no-mixed-spaces-and-tabs": [ "error", false ],
+
+        // No Set without Get
+        "accessor-pairs": [ "error", { "getWithoutSet": true, "setWithoutGet": true } ],
+
+        // Require Consistent Returns
+        "consistent-return": [ "error" ],
+
+        // Force function expresion: var foo = function() {}
+        "func-style": [ "error", "expression" ],
+
+        // DO NOT require hasOwnProperty for keys in for loop
+        "guard-for-in": [ "error" ],
+
+        // Quotes format
+        "quotes": [ "error", "double", "avoid-escape" ],
+
+        // arguments.caller and arguments.callee will be deprecated
+        "no-caller": [ "error" ],
+
+        // Warninig when using expression in a condition
+        "no-constant-condition": [ "warn" ],
+
+        // Continue makes code less testable, less readable and less maintainable.
+        "no-continue": [ "off" ],
+
+        // Regex
+        "no-control-regex": [ "error" ],
+        "no-div-regex": [ "error" ],
+        "no-invalid-regexp": [ "error" ],
+        "no-regex-spaces": [ "error" ],
+        "no-empty-character-class": [ "error" ],
+        "no-useless-escape": [ "warn" ],
+
+        // Unnecesary else when returning.
+        "no-else-return": [ "error" ],
+
+        // Empty block
+        "no-empty": [ "error" ],
+
+        // No labels
+        "no-labels": [ "error" ],
+
+        // eval is evil
+        "no-eval": [ "error" ],
+        "no-implied-eval": [ "error" ],
+
+        // Avoid assign an exception parameter
+        "no-ex-assign": [ "error" ],
+
+        // Disallow Extending of Native Objects
+        "no-extend-native": [ "error" ],
+
+        // Prevent if (!!foo){}; var foo = !!bar ? baz : bat;
+        "no-extra-boolean-cast": [ "error" ],
+
+        // Don't var a = .2 Use only a = "off".2
+        "no-floating-decimal": [ "error" ],
+
+        // Prevent function assignment
+        "no-func-assign": [ "error" ],
+
+        // Comments with todo
+        "no-warning-comments": [ "warn", { "terms": [ "TODO:", "FIXME:" ], "location": "start" } ],
+
+        // Radix in paseInt
+        "radix": [ "error" ],
+
+        // Octal notation, allways with quotes
+        "no-octal": [ "error" ],
+        "no-octal-escape": [ "error" ],
+
+        // Throw object
+        "no-throw-literal": [ "error" ],
+
+        // TODO: document this settings with comments
+        "no-inner-declarations": [ "error", "functions" ],
+        "no-iterator": [ "error" ],
+        "no-multi-spaces": [ "error" ],
+        "no-multi-str": [ "error" ],
+        "no-global-assign": [ "error" ],
+        "no-negated-in-lhs": [ "error" ],
+        "no-nested-ternary": [ "error" ],
+        "no-obj-calls": [ "error" ],
+        "no-script-url": [ "error" ],
+        "no-self-compare": [ "error" ],
+        "no-sequences": [ "error" ],
+        "no-sparse-arrays": [ "error" ],
+        "no-unneeded-ternary": [ "error" ],
+        "no-unreachable": [ "error" ],
+        "no-unused-expressions": [ "error" ],
+        "no-with": [ "error" ],
+        "operator-linebreak": [ "error", "after" ],
+        "use-isnan": [ "error" ],
+        "wrap-iife": [ "error" ],
+        "wrap-regex": [ "error" ],
+        "yoda": [ "error", "never", { "exceptRange": true } ]
+    }
+}
