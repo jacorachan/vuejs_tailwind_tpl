@@ -253,6 +253,8 @@
         "use-isnan": [ "error" ],
         "wrap-iife": [ "error" ],
         "wrap-regex": [ "error" ],
-        "yoda": [ "error", "never", { "exceptRange": true } ]
+        "yoda": [ "error", "never", { "exceptRange": true } ],
+
+        "indent": ["error", 4 ]
     }
 }

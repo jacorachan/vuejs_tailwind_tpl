@@ -1,5 +1,5 @@
-# vue.js template with tailwindcss
-_Add here your description_
+# vue.js grid template with tailwindcss
+Simple template
 
 ## Project setup
 Download and install yarn:

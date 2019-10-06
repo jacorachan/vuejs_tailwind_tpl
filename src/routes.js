@@ -1,8 +1,6 @@
-import Welcome from "./components/login/Welcome";
-import Login from "./components/login/Login";
+import Welcome from "./components/Welcome";
 
 export const routes = [
-  { path: "/", component: Welcome, name: "Welcome" },
-  { path: "/Login", component: Login, name: "Login" },
-  { path: "*", redirect: "/" }
+    { path: "/", component: Welcome, name: "Welcome" },
+    { path: "*", redirect: "/" }
 ];

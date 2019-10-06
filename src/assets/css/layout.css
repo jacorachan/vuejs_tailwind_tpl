@@ -1,0 +1,27 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 240px;
+    grid-template-rows: 50px 1fr;
+    grid-template-areas: "header header" "main sidenav";
+    height: 100vh;
+}
+
+body {
+    background-color: #fff;
+    font-size: 16px;
+    margin: 0;
+}
+
+header {
+    grid-area: header;
+    background-color: #F7F7F7;
+}
+
+.sidenav {
+    grid-area: sidenav;
+    background-color: #F7F7F7;
+}
+
+main {
+    grid-area: main;
+}

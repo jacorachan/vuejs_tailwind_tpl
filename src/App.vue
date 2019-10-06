@@ -1,34 +1,43 @@
 <template>
-  <div class="container-application-content text-base">
-    <div class="container text-black flex flex-col">
-      <transition name="fade">
-        <router-view></router-view>
-      </transition>
+    <div class="grid-container">
+        <Header />
+        <template v-if="!showIEMessage">
+            <Menu>
+                Here goes the menu
+            </Menu>
+            <Main />
+        </template>
+        <template v-else>
+            <IEMessage />
+        </template>
     </div>
-  </div>
 </template>
 
 <script>
+import Menu from "./layout/Menu.vue";
+import Header from "./layout/Header.vue";
+import Main from "./layout/Main.vue";
+import IEMessage from "./layout/IEMessage.vue";
 
 export default {
-  name: "app"
-}
+    name: "app",
+    components: {
+        Menu,
+        Header,
+        Main,
+        IEMessage
+    },
+    data: (e) => {
+        return {
+            showIEMessage: false
+        };
+    },
+    mounted() {
+        var ua = window.navigator.userAgent;
+        var isIE = (/MSIE|Trident/).test(ua);
+        if (isIE) {
+            this.showIEMessage = true;
+        }
+    }
+};
 </script>
-
-<style>
-body {
-  background-color: #fff;
-  font-size: "16px";
-}
-.fade-enter-active, .fade-leave-active {
-  transition-property: opacity;
-  transition-duration: .25s;
-}
-
-.fade-enter-active {
-  transition-delay: .25s;
-}
-.fade-enter, .fade-leave-active {
-  opacity: 0
-}
-</style>
